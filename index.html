@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>주니어 개발자를 위한 성장 습관</title>
+    <title>주니어 개발자를 위한 3가지 성장 습관</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,24 +13,23 @@
             font-family: 'Inter', 'Noto Sans KR', sans-serif;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            background-color: #111827;
+            background-image: radial-gradient(circle at center, #1a2333, #111827);
         }
         .slide {
-            transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
             will-change: transform, opacity;
         }
         .slide.hidden {
             opacity: 0;
-            transform: scale(0.95);
+            transform: scale(0.98);
             pointer-events: none;
             position: absolute;
         }
-        .slide-content {
-             animation: fadeIn 0.8s ease-in-out forwards;
-        }
-        @keyframes fadeIn {
+        @keyframes contentFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(15px);
             }
             to {
                 opacity: 1;
@@ -40,156 +39,554 @@
         code {
             background-color: #374151;
             color: #f3f4f6;
-            padding: 2px 6px;
-            border-radius: 4px;
+            padding: 3px 7px;
+            border-radius: 5px;
             font-size: 0.9em;
         }
         .progress-bar-inner {
             transition: width 0.3s ease-out;
         }
+        .card {
+            background-color: rgba(31, 41, 55, 0.7);
+            border: 1px solid rgba(75, 85, 99, 0.5);
+            transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+        }
+        .card:hover {
+            background-color: rgba(55, 65, 81, 0.7);
+            border-color: rgba(107, 114, 128, 0.5);
+            transform: translateY(-4px);
+        }
     </style>
 </head>
-<body class="bg-gray-900 text-gray-200 flex flex-col items-center justify-center min-h-screen overflow-hidden p-4 relative">
+<body class="text-gray-200 flex flex-col items-center justify-center min-h-screen overflow-hidden p-4 relative">
 
     <div id="presentation-container" class="w-full max-w-5xl h-[80vh] flex items-center justify-center relative">
 
         <div class="slide w-full h-full flex flex-col items-center justify-center text-center p-8">
             <div class="slide-content w-full">
                 <h1 class="text-5xl md:text-7xl font-black text-white leading-tight">주니어 개발자를 위한<br><span class="text-cyan-400">3가지 성장 습관</span></h1>
-                <p class="mt-8 text-xl md:text-2xl text-gray-400">발표자: 심청미</p>
-                <p class="mt-2 text-lg text-gray-500">2025. 09. 26.</p>
+                <p class="mt-10 text-xl md:text-2xl text-gray-400">발표자: 심청미</p>
+                <p class="mt-2 text-lg text-gray-500">2025. 09. 26</p>
             </div>
         </div>
 
         <div class="slide w-full h-full flex flex-col items-center justify-center text-center p-8 hidden">
-            <div class="slide-content w-full">
-                <h2 class="text-4xl md:text-5xl font-bold text-white">여러분과 같은 출발선에서 시작했습니다</h2>
-                <ul class="mt-8 text-left text-lg md:text-xl text-gray-300 space-y-4 max-w-2xl mx-auto list-disc list-inside">
+            <div class="slide-content w-full max-w-3xl">
+                <h2 class="text-4xl md:text-5xl font-bold text-white">같은 <strong class="text-cyan-400">출발선</strong>에서 시작했습니다</h2>
+                <ul class="mt-8 text-left text-lg md:text-xl text-gray-300 space-y-4 list-disc list-inside">
                     <li>3년 전, 비전공자로 국비지원 교육을 수료</li>
-                    <li>'내가 잘할 수 있을까?' 불안감을 안고 있던 예비 개발자</li>
-                    <li class="mt-6 pt-4 border-t border-gray-700"><span class="font-bold text-cyan-400">오늘의 목표:</span> 화려한 기술이 아닌, 단단한 성장을 위한 '현실적인 조언'</li>
+                    <li>"내가 잘할 수 있을까?" 불안감을 안고 있던 예비 개발자</li>
+                    <li class="mt-6 pt-4 border-t border-gray-700"><span class="font-bold text-cyan-400">오늘의 목표:</span> 화려한 기술이 아닌, 단단한 성장을 위한 현실적인 조언</li>
                 </ul>
             </div>
         </div>
+		
+		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
+			<div class="slide-content w-full max-w-3xl">
+				<h2 class="text-4xl md:text-5xl font-bold text-white text-center mb-16">오늘 이야기할 3가지</h2>
+				
+				<div class="space-y-6">
 
-        <div class="slide w-full h-full flex flex-col items-center justify-center text-center p-8 hidden">
-            <div class="slide-content w-full">
-                 <h2 class="text-4xl md:text-5xl font-bold text-white mb-12">오늘 이야기할 3가지</h2>
-                <div class="space-y-6 text-left max-w-2xl mx-auto">
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                        <h3 class="text-2xl md:text-3xl font-bold text-cyan-400">1. 공부의 방향</h3>
-                        <p class="mt-2 text-lg text-gray-400">AI 시대, 무엇을 깊게 파야 하는가?</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                        <h3 class="text-2xl md:text-3xl font-bold text-cyan-400">2. 업무의 습관</h3>
-                        <p class="mt-2 text-lg text-gray-400">나만의 가장 강력한 무기 만들기</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
-                        <h3 class="text-2xl md:text-3xl font-bold text-cyan-400">3. 성장의 가속</h3>
-                        <p class="mt-2 text-lg text-gray-400">하루 10분이 만드는 압도적 차이</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+					<div class="card p-6 rounded-lg flex items-center gap-6">
+						<span class="text-6xl font-black text-gray-700 tabular-nums">01</span>
+						<div class="border-l-2 border-gray-700 pl-6 flex-grow">
+							<h3 class="text-2xl md:text-3xl font-bold text-cyan-400">공부의 방향</h3>
+							<p class="mt-1 text-lg text-gray-400">AI 시대, 무엇을 깊게 파야 하는가?</p>
+						</div>
+						<svg class="w-12 h-12 text-cyan-400/50 hidden md:block" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+							<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+						</svg>
+					</div>
 
+					<div class="card p-6 rounded-lg flex items-center gap-6">
+						<span class="text-6xl font-black text-gray-700 tabular-nums">02</span>
+						<div class="border-l-2 border-gray-700 pl-6 flex-grow">
+							<h3 class="text-2xl md:text-3xl font-bold text-cyan-400">업무의 습관</h3>
+							<p class="mt-1 text-lg text-gray-400">나만의 가장 강력한 무기 만들기</p>
+						</div>
+						<svg class="w-12 h-12 text-cyan-400/50 hidden md:block" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125M12 15v5.25c0 .621.504 1.125 1.125 1.125H15" />
+						</svg>
+					</div>
+
+					<div class="card p-6 rounded-lg flex items-center gap-6">
+						<span class="text-6xl font-black text-gray-700 tabular-nums">03</span>
+						<div class="border-l-2 border-gray-700 pl-6 flex-grow">
+							<h3 class="text-2xl md:text-3xl font-bold text-cyan-400">성장의 가속</h3>
+							<p class="mt-1 text-lg text-gray-400">하루 10분이 만드는 압도적 차이</p>
+						</div>
+						<svg class="w-12 h-12 text-cyan-400/50 hidden md:block" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.63 2.25c-2.636 0-5.092 1.057-6.937 2.898s-2.898 4.301-2.898 6.937c0 2.636 1.057 5.092 2.898 6.937s4.301 2.898 6.937 2.898c1.803 0 3.492-.504 4.89-1.354A6.002 6.002 0 0115.59 14.37z" />
+						</svg>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+        
         <div class="slide w-full h-full flex flex-col items-center justify-center text-center p-8 hidden">
             <div class="slide-content w-full">
                 <p class="text-2xl text-cyan-400 font-bold">Part 1</p>
                 <h2 class="text-5xl md:text-7xl font-black text-white mt-2">공부의 방향</h2>
-                <p class="mt-6 text-xl md:text-3xl text-gray-400">나만의 '언어적 모국어'를 만드세요</p>
-            </div>
-        </div>
-        
-        <div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
-            <div class="slide-content w-full max-w-4xl">
-                 <h2 class="text-3xl md:text-4xl font-bold text-white text-center">AI가 코딩하는 시대,<br>개발자의 진짜 실력은 어디에서 오는가?</h2>
-                 <div class="mt-10 grid md:grid-cols-2 gap-8 text-left">
-                    <div class="bg-red-900/20 border border-red-500/30 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold text-red-300">얕은 공부</h3>
-                        <p class="mt-2 text-gray-300">여러 언어의 '문법'만 암기</p>
-                        <p class="mt-4 text-2xl font-bold text-center">⬇️</p>
-                        <p class="text-center font-semibold text-red-300">AI가 대체하기 쉬움</p>
-                    </div>
-                    <div class="bg-green-900/20 border border-green-500/30 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold text-green-300">깊은 공부</h3>
-                        <p class="mt-2 text-gray-300">하나의 언어 '동작 원리' 이해</p>
-                        <p class="mt-4 text-2xl font-bold text-center">⬇️</p>
-                        <p class="text-center font-semibold text-green-300">어떤 기술에도 응용 가능</p>
-                    </div>
-                 </div>
-                 <p class="mt-10 text-center text-xl text-cyan-400 font-semibold bg-gray-800 p-4 rounded-md">"아, 이건 Java의 OOO 개념이구나!" 하고 유추하는 힘</p>
-            </div>
-        </div>
-
-        <div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
-            <div class="slide-content w-full max-w-3xl">
-                <h2 class="text-3xl md:text-4xl font-bold text-white text-center">"왜 <code>String</code>은 대문자일까?"</h2>
-                <ul class="mt-8 text-left text-lg md:text-xl text-gray-300 space-y-6">
-                    <li class="bg-gray-800 p-4 rounded-md"><strong class="text-gray-400">표면적 이해:</strong> <code>int</code>는 기본형, <code>String</code>은 참조형이니까.</li>
-                    <li class="bg-gray-800 p-4 rounded-md">
-                        <strong class="text-cyan-400">원리적 이해:</strong>
-                        <ul class="list-disc list-inside mt-2 space-y-2 pl-4">
-                            <li>C언어의 <code>char[]</code> (문자 배열) → 메모리의 연속된 공간</li>
-                            <li>Java의 <code>String</code> 클래스 → 데이터와 기능을 가진 '객체(Object)'</li>
-                        </ul>
-                    </li>
-                    <li class="mt-6 pt-4 border-t border-gray-700 text-center font-bold text-xl text-green-300">메모리 구조에 대한 이해가 '참조' 개념을 진짜 내 것으로 만듦</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
-            <div class="slide-content w-full max-w-3xl">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">취업 전, Java에서 파고들어야 할 핵심 개념</h2>
-                <ul class="mt-8 text-xl md:text-2xl text-gray-200 space-y-4 text-left">
-				    <li class="bg-gray-800 p-4 rounded-md flex items-center">✅<span class="ml-4">Primitive & Reference Types</span></li>
-                    <li class="bg-gray-800 p-4 rounded-md flex items-center">✅<span class="ml-4">메모리 구조 (Stack & Heap)</span></li>
-                    <li class="bg-gray-800 p-4 rounded-md flex items-center">✅<span class="ml-4">클래스와 객체 (Class & Object)</span></li>
-                    <li class="bg-gray-800 p-4 rounded-md flex items-center">✅<span class="ml-4"><code>static</code>의 정확한 의미와 사용법</span></li>
-                </ul>
-                <p class="mt-8 text-center text-lg text-amber-300 bg-amber-900/30 p-4 rounded-md"><strong>Tip:</strong> 좋은 책 한 권을 처음부터 끝까지 독파하는 경험을 추천합니다!</p>
-            </div>
-        </div>
-        
-        <div class="slide w-full h-full flex flex-col items-center justify-center text-center p-8 hidden">
-             <div class="slide-content w-full">
-                <p class="text-2xl text-cyan-400 font-bold">Part 2</p>
-                <h2 class="text-5xl md:text-7xl font-black text-white mt-2">업무의 습관</h2>
-                <p class="mt-6 text-xl md:text-3xl text-gray-400">미래의 나를 위한 '해결 기록' 만들기</p>
+                <p class="mt-6 text-xl md:text-3xl text-gray-400">나만의 <strong class="text-cyan-300">언어적 모국어</strong>를 만드세요</p>
             </div>
         </div>
 
         <div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
             <div class="slide-content w-full max-w-4xl text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">신입의 비밀 무기: 나만의 '해결 노트'</h2>
-                <p class="mt-4 text-lg text-gray-400">매일 수행한 모든 것을 기록합니다. (성공, 실패, 명령어 등)</p>
-				<div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-800 p-4 rounded-lg border-2 border-dashed border-gray-600">
-                    <img src="노트기록.png" alt="업무 기록 예시 1" class="rounded-md w-full h-auto object-contain max-h-[45vh]">
-                    <img src="노트기록2.png" alt="업무 기록 예시 2" class="rounded-md w-full h-auto object-contain max-h-[45vh]">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">"왜 <code>String</code>은 대문자로 시작할까?"</h2>
+                <p class="mt-4 text-xl text-gray-400">작은 질문 하나가 메모리 구조의 이해로 이어집니다.</p>
+            </div>
+        </div>
+
+		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
+			<div class="slide-content w-full max-w-4xl">
+				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">정답: <strong class="text-cyan-400">클래스(Class)</strong>이기 때문입니다.</h2>
+				<div class="mt-8 grid md:grid-cols-2 gap-6 text-lg text-gray-300">
+					<div class="card p-6 rounded-lg">
+						<h3 class="text-xl font-bold text-cyan-400">1. 데이터 타입: 기본형 vs 참조형</h3>
+						<ul class="mt-4 space-y-3">
+							<li><strong class="text-gray-200">기본형 (Primitive)</strong>
+								<p class="text-base text-gray-400 pl-2"><code>int a = 10;</code><br>변수 공간에 <strong class="text-green-400">실제 값</strong>을 직접 저장</p>
+							</li>
+							<li><strong class="text-gray-200">참조형 (Reference)</strong>
+								<p class="text-base text-gray-400 pl-2"><code>String s = "Hi";</code><br>실제 값이 있는 곳의 <strong class="text-yellow-400">메모리 주소</strong>를 저장</p>
+							</li>
+						</ul>
+					</div>
+					<div class="card p-6 rounded-lg">
+						<h3 class="text-xl font-bold text-cyan-400">2. 문자열 구현: C vs Java</h3>
+						<ul class="mt-4 space-y-3">
+							<li><strong class="text-gray-200">C언어</strong>
+								<p class="text-base text-gray-400 pl-2"><strong class="text-amber-400">String 타입</strong>이 없고, <strong class="text-green-400">문자(char) 배열</strong>로 표현</p>
+							</li>
+							<li><strong class="text-gray-200">Java</strong>
+								<p class="text-base text-gray-400 pl-2">문자 배열과 기능을 묶어 <strong class="text-yellow-400">String 클래스</strong>로 설계</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="mt-6 text-left bg-gray-900/50 p-6 rounded-lg border border-gray-700 space-y-2 text-lg">
+					<p><span class="text-cyan-400 font-bold">클래스</span>는 <span class="text-cyan-400 font-bold">참조형</span>이므로, 변수는 실제 값이 아닌 <strong class="text-yellow-400">메모리 주소</strong>를 가집니다.</p>
+					<p>이것이 문자열 <strong class="text-amber-400">내용</strong>을 비교할 때, <code class="bg-red-900/50 text-red-400 px-2 py-1 rounded">==</code>가 아닌 <code class="bg-green-900/50 text-green-400 px-2 py-1 rounded">.equals()</code>를 써야 하는 이유입니다.</p>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 슬라이드 2: 문자열 비교 퀴즈 (수정됨) -->
+        <div class="slide w-full h-full flex flex-col items-center justify-center absolute top-0 left-0 hidden">
+            <div class="slide-content w-full max-w-2xl text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">
+                    Object vs String
+                </h2>
+                <div class="mt-8">
+                    <div class="card p-6 rounded-xl flex flex-col max-w-lg mx-auto text-left">
+                        <div class="mt-4 bg-black p-4 rounded-md flex-grow">
+                            <pre class="text-sm md:text-base font-mono text-white"><code>Object obj = new Object();
+ System.out.println(obj);
+
+ <span class="text-green-400">// 출력: java.lang.Object@7852e922</span>
+
+ String str = "hello";
+ System.out.println(str);
+
+ <span class="text-green-400">// 출력: ?</span></code></pre>
+                        </div>
+						<div class="mt-4 grid grid-cols-1 gap-4 text-center font-semibold">
+							<div id="correct-answer" class="quiz-option bg-gray-700 p-3 rounded-md cursor-pointer flex items-center">
+								<p class="text-green-400 text-lg leading-tight flex-shrink-0 mr-4">🅰️</p>
+								<p class="text-green-400 text-sm leading-tight text-left flex-grow">hello</p>
+							</div>
+							<div id="wrong-answer" class="quiz-option bg-gray-700 p-3 rounded-md cursor-pointer flex items-center">
+								<p class="text-green-400 text-lg leading-tight flex-shrink-0 mr-4">🅱️</p>
+								<p class="text-green-400 text-sm leading-tight text-left flex-grow">java.lang.String@15db9742</p>
+							</div>
+						</div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
-            <div class="slide-content w-full max-w-4xl">
-                 <h2 class="text-3xl md:text-4xl font-bold text-white text-center">기록은 가장 강력한 '개인 자산'입니다</h2>
-                 <ul class="mt-8 text-lg space-y-6">
-                    <li class="bg-gray-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold text-green-300">1. 미래의 나를 구원</h3>
-                        <p class="mt-2 text-gray-300">"분명 겪어봤는데...?" → 검색 한 번으로 5분 만에 해결</p>
-                    </li>
-                    <li class="bg-gray-800 p-6 rounded-lg">
-                        <h3 class="text-xl font-bold text-green-300">2. 백업 불가능한 경험의 자산화</h3>
-                        <div class="mt-4 grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
-                            <div class="bg-gray-700 p-3 rounded"><p>Git: 소스코드</p><span class="text-sm text-gray-400">(회사 자산)</span></div>
-                            <div class="bg-gray-700 p-3 rounded"><p>DB: 데이터</p><span class="text-sm text-gray-400">(회사 자산)</span></div>
-                            <div class="bg-cyan-800 p-3 rounded font-bold"><p>나의 기록: 경험</p><span class="text-sm text-cyan-300">(온전한 나의 자산)</span></div>
+    <!-- 맞춤형 메시지 박스 (Modal) -->
+    <div id="feedback-modal" class="modal-fade-enter fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 hidden">
+        <div id="modal-content" class="bg-gray-800 rounded-xl shadow-2xl p-8 max-w-sm w-full text-center border-t-4">
+            <p id="modal-text" class="text-2xl font-bold"></p>
+            <button id="modal-close-btn" class="mt-6 bg-cyan-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-cyan-600 transition-colors">
+                확인
+            </button>
+        </div>
+    </div>
+
+		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
+			<div class="slide-content w-full max-w-5xl">
+				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">"<code>println(str)</code>은 왜 주소값이 아닐까?"</h2>
+				<p class="text-center mt-2 text-lg text-gray-400">println은 모든 객체의 <code>.toString()</code> 메소드를 자동 호출</p>
+				
+				<div class="mt-8 grid md:grid-cols-2 gap-6 text-left">
+					
+					<div class="card p-6 rounded-lg flex flex-col">
+						<h3 class="text-xl font-bold text-cyan-400">1. String 객체</h3>
+						<p class="mt-2 text-gray-300"><code class="text-amber-300">.toString()</code>의 특별한 재정의(Override): <br><strong class="text-amber-300 font-bold">문자열 내용 자체를 반환</strong></p>
+						<div class="mt-auto pt-4">
+							<p class="text-gray-400 text-sm font-bold">실제 `String.java` 소스 코드:</p>
+							<div class="mt-2 bg-black/50 p-3 rounded-md text-sm font-mono">
+								<p>public String toString() {</p>
+								<p class="pl-4">return this;</p>
+								<p>}</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="card p-6 rounded-lg flex flex-col">
+						<h3 class="text-xl font-bold text-cyan-400">2. 일반 Object</h3>
+						<p class="mt-2 text-gray-300"><code class="text-amber-300">.toString()</code> 재정의가 없다면 기본 동작:<br><strong class="text-amber-300 font-bold">클래스이름@해시코드</strong> 반환</p>
+						<div class="mt-auto pt-4">
+							<p class="text-gray-400 text-sm font-bold">실제 `Object.java` 소스 코드:</p>
+							<div class="mt-2 bg-black/50 p-3 rounded-md text-sm font-mono">
+								<p>public String toString() {</p>
+								<p class="pl-4">return getClass().getName() + "@" +</p>
+								<p class="pl-8">Integer.toHexString(hashCode());</p>
+								<p>}</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
+			<div class="slide-content w-full max-w-7xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">직접 JDK 소스 코드를 열어보면...</h2>
+				
+				<div class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4">
+					<div class="card p-4 rounded-lg flex flex-col">
+						<p class="mb-3 text-center text-gray-300 text-sm font-semibold flex-shrink-0">1. JDK 라이브러리 경로</p>
+						<img src="jdk.png" alt="JDK 라이브러리 구조" class="rounded-md w-full flex-grow h-0 object-fill">
+					</div>
+					
+					<div class="card p-4 rounded-lg flex flex-col">
+						<p class="mb-3 text-center text-gray-300 text-sm font-semibold flex-shrink-0">2. `java.lang` 패키지 내부</p>
+						<img src="object.png" alt="java.lang 패키지 내부" class="rounded-md w-full flex-grow h-0 object-fill">
+					</div>
+					
+					<div class="md:col-span-2 space-y-4">
+						<div class="card p-4 rounded-lg">
+							<p class="mb-3 text-center text-gray-300 text-sm font-semibold">3. `String.toString()`</p>
+							<img src="tosting.png" alt="String의 toString 메소드" class="rounded-md w-full h-auto object-contain">
+						</div>
+						<div class="card p-4 rounded-lg">
+							<p class="mb-3 text-center text-gray-300 text-sm font-semibold">4. `Object.toString()`</p>
+							<img src="tosting2.png" alt="Object의 toString 메소드" class="rounded-md w-full h-auto object-contain">
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		
+		 <!-- 슬라이드 2: 문자열 비교 퀴즈 (수정됨) -->
+        <div class="slide w-full h-full flex flex-col items-center justify-center absolute top-0 left-0 hidden">
+            <div class="slide-content w-full max-w-2xl text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">
+                    == VS .equals
+                </h2>
+                <div class="mt-8">
+                    <div class="card p-6 rounded-xl flex flex-col max-w-lg mx-auto text-left">
+                        <div class="mt-4 bg-black p-4 rounded-md flex-grow">
+                            <pre class="text-sm md:text-base font-mono text-white"><code>String s1 = "hello";
+ String s2 = "hello";
+ if (s1 == s2) {
+    System.out.println("line 1 ==");
+ }
+ if (s1.equals(s2)) {
+    System.out.println("line 2 ==");
+ }
+ 
+ <span class="text-green-400">// 출력: ?</span></code></pre>
                         </div>
-                    </li>
-                 </ul>
+						<div class="mt-4 grid grid-cols-1 gap-4 text-center font-semibold">
+							<div id="q2-literal-wrong" class="quiz-option bg-gray-700 p-3 rounded-md cursor-pointer flex items-center">
+								<p class="text-green-400 text-lg leading-tight flex-shrink-0 mr-4">🅰️</p>
+								<p class="text-green-400 text-sm leading-tight text-left flex-grow">line 2 ==</p>
+							</div>
+							<div id="q2-literal-correct" class="quiz-option bg-gray-700 p-3 rounded-md cursor-pointer flex items-center">
+								<p class="text-green-400 text-lg leading-tight flex-shrink-0 mr-4">🅱️</p>
+								<p class="text-green-400 text-sm leading-tight text-left flex-grow">line 1 ==<br>line 2 ==</p>
+							</div>
+						</div>
+						
+                    </div>
+                </div>
             </div>
         </div>
+		
+		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
+			<div class="slide-content w-full max-w-5xl">
+				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">"<code>s1 == s2</code>는 왜 <span class="text-yellow-400">true</span>일까?"</h2>
+				<p class="text-center mt-2 text-lg text-gray-400"><strong class="text-cyan-400">String Constant Pool</strong>과 <strong class="text-cyan-400">불변성</strong> 때문</p>
+				
+				<div class="mt-6 grid md:grid-cols-2 gap-6 text-left">
+					<div class="card p-6 rounded-lg">
+						<h3 class="text-xl font-bold text-cyan-400">1. 리터럴 방식 (`"..."`) ♻️</h3>
+						<p class="mt-2 text-gray-400 text-base"><strong class="text-amber-400">String Constant Pool</strong>에 <strong class="text-green-400">같은 내용</strong>이 있으면 
+						<br><strong class="text-cyan-400">기존 주소를 공유</strong></p>
+						<div class="mt-4 bg-gray-900 p-3 rounded-md text-sm font-mono">
+							<p>String s1 = "hello";</p><p>String s2 = "hello";</p><p class="text-green-400 mt-2">// s1 == s2  결과: true</p>
+						</div>
+					</div>
+					<div class="card p-6 rounded-lg">
+						<h3 class="text-xl font-bold text-cyan-400">2. `new` 키워드 방식</h3>
+						<p class="mt-2 text-gray-400 text-base"><code>new</code>는 Pool과 상관없이 <strong class="text-yellow-400">무조건 새로운 객체</strong>를 만듬</p>
+						<div class="mt-4 bg-gray-900 p-3 rounded-md text-sm font-mono">
+							<p>String s3 = new String("hello");</p><p>String s4 = new String("hello");</p><p class="text-green-400 mt-2">// s3 == s4 결과: false</p>
+						</div>
+					</div>
+				</div>
 
+				<div class="mt-6 text-center bg-gray-900/50 p-6 rounded-lg border border-gray-700">
+					<p class="mt-4 text-gray-300 text-lg">
+						생성 방식에 따라 <code class="bg-red-900/50 text-red-400 px-2 py-1 rounded">==</code> 비교는 맞을 수도, 틀릴 수도 있습니다.<br>
+						따라서 문자열의 <strong class="text-amber-400">내용</strong>을 비교할 때는 항상 <code class="bg-green-900/50 text-green-400 px-2 py-1 rounded">.equals()</code> <strong class="text-white">를 사용하는 것이 안전한 규칙</strong>입니다.
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
+			<div class="slide-content w-full max-w-5xl">
+				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">
+					<span class="text-cyan-300">실무</span>에서 <code class="bg-red-900/50 text-red-400 px-2 py-1 rounded">==</code> 비교가 실패하는 진짜 이유
+				</h2>
+				<p class="text-center mt-2 text-lg text-gray-400">`new String()`을 안 써도, 외부 문자열은 <strong class="text-white">새로 생성</strong>됩니다.</p>
+				
+				<div class="mt-6 grid md:grid-cols-2 gap-4 text-center">
+					
+					<div class="card p-4 rounded-lg">
+						<h3 class="text-xl font-bold text-gray-300">컴파일 시점</h3>
+						<p class="mt-2 text-gray-400 text-sm"><strong class="text-white">코드에 직접 작성</strong>한 문자열 리터럴.<br><strong class="text-cyan-400">String Constant Pool</strong>에 저장</p>
+						<div class="mt-3 bg-gray-900/70 p-3 rounded-xl text-left font-mono text-xs">
+							<code>String statusInCode = "SUCCESS";</code>
+						</div>
+					</div>
+
+					<div class="card p-4 rounded-lg">
+						<h3 class="text-xl font-bold text-gray-300">런타임 시점</h3>
+						<p class="mt-2 text-gray-400 text-sm"><strong class="text-white">외부에서 들어오는</strong> 모든 데이터.<br><strong class="text-yellow-400">Heap 메모리</strong>에 새로 생성</p>
+						<ul class="mt-2 text-left list-disc list-inside text-gray-400 text-xs pl-2">
+							<li>DB 조회 결과 (MyBatis, JPA)</li>
+							<li>외부 API 응답, 사용자 입력 등</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="mt-4 card p-4 rounded-lg">
+					<div class="mt-2 bg-gray-900 p-3 rounded-md text-sm font-mono">
+						<p class="text-gray-400 text-xs">// DB에서 "SUCCESS" 값을 조회했다고 가정</p>
+						<p>String statusFromDB = mybatis.getStatus();</p>
+						<div class="mt-2 border-t border-gray-700 pt-2 space-y-1">
+							<p class="flex items-center"><span class="text-red-400 font-bold mr-3">💀 false</span> <span>statusInCode == statusFromDB</span></p>
+							<p class="flex items-center"><span class="text-green-400 font-bold mr-3">👍 true</span> <span>statusInCode.equals(statusFromDB)</span></p>
+						</div>
+					</div>
+					<p class="mt-3 text-center text-base text-gray-300">
+						문자열의 <strong class="text-cyan-400 font-bold">출처(메모리 위치)</strong>가 다르기 때문입니다.
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
+			<div class="slide-content w-full h-full flex flex-col items-center justify-center text-center">
+				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">
+					<span class="text-cyan-300">지난 3년간의 기술 여정</span>
+				</h2>
+				<div class="flex-grow flex items-center justify-center w-full max-w-7xl mx-auto p-4">
+					<img src="tech_stack_full.png" alt="지난 3년간 사용한 다양한 기술 스택" 
+						 class="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl border border-gray-700 animate-zoom-in">
+				</div>
+			</div>
+		</div>
+		
+		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
+			<div class="slide-content w-full max-w-4xl">
+				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">
+					저 수많은 기술들이 말해주는 한 가지
+				</h2>
+				<p class="text-center mt-2 text-xl text-gray-400">
+					결국 중요한 것은 <span class="text-cyan-300">문법</span>이 아닌 <span class="text-cyan-300">원리</span>였습니다.
+				</p>
+				
+				<div class="mt-8 grid md:grid-cols-2 gap-6 text-center">
+					
+					<div class="card p-4 rounded-lg bg-red-900/20 border border-red-500/30">
+						<h3 class="text-lg font-bold text-red-300">얕은 공부</h3>
+						<p class="mt-2 text-base text-gray-300">여러 언어의 <strong class="text-white">문법</strong>만 암기</p>
+						<p class="mt-3 text-lg font-semibold text-red-300">
+							AI가 대체하기 쉬움
+						</p>
+					</div>
+
+					<div class="card p-4 rounded-lg bg-green-900/20 border border-green-500/30">
+						<h3 class="text-lg font-bold text-green-300">깊은 공부</h3>
+						<p class="mt-2 text-base text-gray-300">하나의 언어 <strong class="text-white">동작 원리</strong> 이해</p>
+						<p class="mt-3 text-lg font-semibold text-green-300">
+							어떤 기술에도 응용 가능
+						</p>
+					</div>
+
+				</div>
+
+				<div class="mt-8 card p-6 rounded-lg text-center bg-gray-900/50 border border-gray-700">
+					<p class="text-xl text-gray-300">
+						<strong class="text-cyan-300">언어적 모국어</strong>의 힘은 새로운 기술을 마주했을 때 발휘됩니다.
+					</p>
+					<div class="my-3 border-t border-cyan-400 w-1/4 mx-auto"></div>
+					<p class="text-2xl text-white font-bold">
+						"이건 <strong class="text-amber-300">Java의 OOO 개념</strong>과 같네?"
+					</p>
+					<p class="mt-3 text-xl text-cyan-400 font-semibold">
+						라고 유추해내는 힘.
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
+			<div class="slide-content w-full max-w-3xl">
+				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">취업 전, 파고들면 좋은 개념</h2>
+				
+				<ul class="mt-8 text-xl md:text-2xl text-gray-200 space-y-4 text-left">
+					
+					<li class="card p-5 rounded-lg flex items-center transition-transform transform hover:scale-105">
+						<span class="text-2xl mr-4">✅</span>
+						<span>기본형(<span class="text-amber-300">Primitive</span>) & 참조형(<span class="text-amber-300">Reference</span>)</span>
+					</li>
+					
+					<li class="card p-5 rounded-lg flex items-center transition-transform transform hover:scale-105">
+						<span class="text-2xl mr-4">✅</span>
+						<span>메모리 구조 (<span class="text-amber-300">Stack & Heap</span>)</span>
+					</li>
+					
+					<li class="card p-5 rounded-lg flex items-center transition-transform transform hover:scale-105">
+						<span class="text-2xl mr-4">✅</span>
+						<span>클래스(객체)와 <span class="text-amber-300">static</span> 멤버</span>
+					</li>
+
+					<li class="card p-5 rounded-lg flex items-center transition-transform transform hover:scale-105">
+						<span class="text-2xl mr-4">✅</span>
+						<span>DB 테이블 관계 (<span class="text-amber-300">1:N, 부모-자식</span>)</span>
+					</li>
+					
+				</ul>
+				
+				<div class="mt-8 card p-4 rounded-lg text-center bg-gray-900/50 border-amber-300/50">
+					<p class="text-lg text-gray-300">
+						<span class="text-xl font-bold text-amber-300 mr-2">💡 Tip:</span>
+						<strong class="text-white">좋은 책 한 권</strong>을 처음부터 끝까지 독파하는 경험을 추천합니다!
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="slide w-full h-full flex flex-col items-center justify-center text-center p-8 hidden">
+			<div class="slide-content w-full">
+				<p class="text-2xl text-cyan-400 font-bold">Part 2</p>
+				<h2 class="text-5xl md:text-7xl font-black text-white mt-2">업무의 습관</h2>
+				<p class="mt-6 text-xl md:text-3xl text-gray-400">미래의 나를 위한 <strong class="text-cyan-300">해결 기록</strong> 만들기</p>
+			</div>
+		</div>
+
+		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
+			<div class="slide-content w-full max-w-4xl text-center">
+				<h2 class="text-3xl md:text-4xl font-bold text-white">신입의 비밀 무기: 나만의 <span class="text-cyan-400">해결 노트</span></h2>
+				<p class="mt-4 text-lg text-gray-400">사소한 성공부터 아찔한 실패의 순간까지, 모든 것을 기록합니다.</p>
+				<div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-800 p-4 rounded-lg border-2 border-dashed border-gray-600">
+					<img src="노트기록.png" alt="업무 기록 예시 1" class="rounded-md w-full h-auto object-contain max-h-[45vh]">
+					<img src="노트기록2.png" alt="업무 기록 예시 2" class="rounded-md w-full h-auto object-contain max-h-[45vh]">
+				</div>
+			</div>
+		</div>
+			
+		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
+			<div class="slide-content w-full max-w-5xl text-center">
+				<h2 class="text-3xl md:text-4xl font-bold text-red-400 animate-pulse">등골이 서늘해졌던 두 번의 경험</h2>
+				<p class="text-lg text-gray-400 mt-2"><code>Ctrl+Z</code>는 통하지 않습니다..</p>
+				<div class="mt-8 grid md:grid-cols-2 gap-8 text-left">
+					<div class="card p-6 rounded-lg border-red-500/50">
+						<h3 class="text-2xl font-bold text-red-300">개발서버 전체 증발</h3>
+						<p class="mt-2 text-gray-400">내가 원했던 것: <code class="text-gray-300">rm -rf ./</code></p>
+						<hr class="border-gray-700 my-3">
+						<p class="text-red-400">내가 입력한 것: <code class="text-red-300 font-bold text-xl">rm -rf /</code></p>
+						<p class="mt-2 text-white font-bold text-lg">점(.) 하나 빠졌을 뿐인데,<br>서버의 <strong class="text-red-400">최상위(root)</strong>부터 모든 것이 삭제 😰😵</p>
+					</div>
+					<div class="card p-6 rounded-lg border-red-500/50">
+						<h3 class="text-2xl font-bold text-red-300">운영 Docker 컨테이너 삭제</h3>
+						<p class="mt-2 text-gray-400">나의 의도: "잠시 내리는 거겠지?"</p>
+						<hr class="border-gray-700 my-3">
+						<p class="text-red-400">실제 명령어의 의미:</p>
+						<p class="mt-2 text-white font-bold text-lg">단순 중단이 아니라, 컨테이너와 네트워크를<br>완전히 <strong class="text-red-400">삭제</strong>하는 명령어 😱🥶</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
+			<div class="slide-content w-full max-w-6xl">
+				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">기록은 가장 강력한 <span class="text-cyan-400">성장 도구</span>입니다</h2>
+				
+				<div class="mt-10 grid md:grid-cols-2 gap-8">
+					
+					<div class="card p-6 rounded-lg flex flex-col items-center text-center">
+						<div class="bg-green-500/10 p-3 rounded-full border border-green-500/30">
+							 <svg class="w-10 h-10 text-green-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+							</svg>
+						</div>
+
+						<h3 class="mt-4 text-2xl font-bold text-green-300">미래의 나를 구원합니다</h3>
+						<p class="mt-2 text-gray-400">(삽질 시간 단축)</p>
+
+						<ul class="mt-6 text-lg text-gray-300 space-y-2">
+							<li><span class="mr-2">✅</span> "어? 이거 전에 해봤는데..."</li>
+							<li><span class="mr-2">✅</span> 반복되는 문제 해결</li>
+							<li><span class="mr-2">✅</span> 과거의 고민과 해결 과정</li>
+						</ul>
+
+						<div class="mt-auto pt-6 w-full">
+							<div class="bg-gray-900/70 p-4 rounded-lg">
+								<p class="font-bold text-xl text-amber-400">과거의 내가 남겨준 '치트키'</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="card p-6 rounded-lg flex flex-col items-center text-center">
+						<div class="bg-cyan-500/10 p-3 rounded-full border border-cyan-500/30">
+							<svg class="w-10 h-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+							   <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+							</svg>
+						</div>
+						
+						<h3 class="mt-4 text-2xl font-bold text-cyan-300">나만의 자산을 만듭니다</h3>
+						<p class="mt-2 text-gray-400">(백업 불가능한 경험)</p>
+
+						<div class="mt-6 w-full text-left space-y-4">
+							<div class="bg-gray-700/50 p-3 rounded-lg">
+								<p class="font-semibold text-gray-400">회사 자산 (백업 가능)</p>
+								<p class="text-white mt-1">소스코드(Git), 데이터(DB)</p>
+							</div>
+							<div class="bg-cyan-900/50 border border-cyan-700 p-3 rounded-lg">
+								<p class="font-semibold text-cyan-300">온전한 나의 자산 (백업 불가)</p>
+								<p class="text-white mt-1 font-bold">설정, 명령어, 에러 해결 과정</p>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+        
         <div class="slide w-full h-full flex flex-col items-center justify-center text-center p-8 hidden">
             <div class="slide-content w-full">
                 <p class="text-2xl text-cyan-400 font-bold">Part 3</p>
@@ -197,96 +594,162 @@
                 <p class="mt-6 text-xl md:text-3xl text-gray-400">하루 10분이 만드는 압도적 차이</p>
             </div>
         </div>
-        
-        <div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
-            <div class="slide-content w-full max-w-4xl">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">출퇴근길 10분, 1년 뒤의 차이</h2>
-                <div class="mt-8 bg-gray-800 p-6 rounded-lg">
-                    <div class="md:flex justify-between items-center">
-                        <div>
-                            <h3 class="font-bold text-xl text-cyan-400">How?</h3>
-                            <ul class="list-disc list-inside mt-2 text-lg">
-                                <li>현재 업무와 관련된 기술 영상 시청</li>
-                                <li>(Docker, 새로운 언어, Git 등)</li>
-                            </ul>
-                        </div>
-                        <div class="mt-6 md:mt-0 text-left md:text-right">
-                            <h3 class="font-bold text-xl text-cyan-400">Result</h3>
-                            <p class="text-lg mt-2"><code>10분/일 x 230일 = 2,300분</code></p>
-                            <p class="text-2xl font-bold text-white">≈ 38시간의 순수 공부 시간</p>
-                        </div>
-                    </div>
-                    <div class="mt-6 pt-6 border-t border-gray-700 text-center text-lg text-amber-300">
-                        <p>단순히 38시간의 학습을 넘어, 매일매일 문제를 고민하는 <strong class="text-white">'사고의 근육'</strong>을 단련시키는 효과가 있습니다. 
-						<br><strong class="text-white">그 차이는 절대적입니다.</strong></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
-            <div class="slide-content w-full max-w-4xl">
-                <h2 class="text-3xl md:text-4xl font-bold text-white text-center">개발자는 '느낌'이 아닌 '정확성'으로 말합니다</h2>
-                 <p class="mt-4 text-center text-lg text-gray-400">AI에게 질문할 때도 '왜?'를 추가하세요.</p>
-                <div class="mt-8 grid md:grid-cols-2 gap-8">
-                    <div class="bg-red-900/20 border border-red-500/30 p-6 rounded-lg text-center">
-                        <h3 class="text-xl font-bold text-red-300">(Bad 👎)</h3>
-                        <p class="mt-4 text-lg">"이거 해결하는 코드 줘"</p>
-                    </div>
-                    <div class="bg-green-900/20 border border-green-500/30 p-6 rounded-lg text-center">
-                        <h3 class="text-xl font-bold text-green-300">(Good 👍)</h3>
-                        <p class="mt-4 text-lg">"이 코드는 어떤 원리로 동작해?<br>왜 이 함수가 최적이야?"</p>
-                    </div>
-                </div>
-                <div class="mt-8 text-center">
-                    <p class="text-amber-300 font-semibold">Tip: 나만의 AI 프롬프트 설정을 만들어 사용하세요!</p>
-                    <img src="개인프롬프트.png" alt="AI 프롬프트 예시" class="rounded-md w-full max-w-xl mx-auto mt-4 border-2 border-dashed border-gray-600">
-                </div>
-            </div>
-        </div>
 
-        <div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
-            <div class="slide-content w-full max-w-3xl">
-                <h2 class="text-3xl md:text-4xl font-bold text-white">그래서 저는 지금...</h2>
-                <ul class="mt-8 text-lg md:text-xl text-gray-300 space-y-4 list-disc list-inside">
-                    <li><strong>3년 차의 고민:</strong> "지식이 파편적으로 흩어져 있는 느낌"</li>
-                    <li><strong>새로운 도전:</strong> 야간 대학원 진학 → 컴퓨터 공학 기초부터 다시 공부</li>
-                    <li class="mt-6 pt-4 border-t border-gray-700">
-                        <strong class="text-cyan-400">깨달음:</strong> 변하는 '기술'이 아닌, 변하지 않는 <strong class="text-white">'본질'</strong>에 투자하는 것의 중요성
-                    </li>
-                </ul>
-            </div>
-        </div>
+		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
+			<div class="slide-content w-full max-w-4xl">
+				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">출퇴근길 <span class="text-cyan-400">10분</span>, 1년 뒤의 <span class="text-amber-300">압도적 차이</span></h2>
+				
+				<div class="mt-8 card p-8 rounded-lg text-center">
+					<div class="grid md:grid-cols-3 items-center gap-8">
+						
+						<div class="text-center">
+							<div class="bg-gray-700 w-20 h-20 rounded-full mx-auto flex items-center justify-center">
+								 <svg class="w-10 h-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" /></svg>
+							</div>
+							<p class="mt-4 text-lg font-semibold">업무 관련 기술 영상 <br> <strong class="text-white">10분 시청</strong></p>
+						</div>
+						
+						<div class="text-center">
+							<div class="bg-gray-700 w-20 h-20 rounded-full mx-auto flex items-center justify-center">
+								<svg class="w-10 h-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+							</div>
+							<p class="mt-4 text-lg font-semibold">1년이면 약 <br> <strong class="text-white">38시간의 학습</strong></p>
+						</div>
+						
+						<div class="text-center">
+							<div class="bg-gray-700 w-20 h-20 rounded-full mx-auto flex items-center justify-center">
+								<svg class="w-10 h-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0110.5 3h6a2.25 2.25 0 012.25 2.25v13.5A2.25 2.25 0 0116.5 21h-6a2.25 2.25 0 01-2.25-2.25V15m-3 0h3m0 0v3m0-3V9" /></svg>
+							</div>
+							<p class="mt-4 text-lg font-semibold">단단해지는 <br> <strong class="text-white">사고의 근육</strong></p>
+						</div>
 
-        <div class="slide w-full h-full flex flex-col items-center justify-center text-center p-8 hidden">
-            <div class="slide-content w-full">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-12">오늘 꼭 기억해야 할 3가지 성장 습관</h2>
-                <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                    <div class="bg-gray-800 p-8 rounded-lg flex flex-col items-center">
-                        <svg class="w-16 h-16 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v11.494m-5.247-8.247l10.494 0M4.155 12.001l15.69 0"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m-8.485-8.485l.707.707M19.071 19.071l.707.707m0-13.142l-.707.707m-11.657 11.657l-.707.707"></path></svg>
-                        <h3 class="mt-4 text-2xl font-bold">1. 깊이 파기</h3>
-                        <p class="mt-2 text-gray-400">(Dig Deep)</p>
-                    </div>
-                    <div class="bg-gray-800 p-8 rounded-lg flex flex-col items-center">
-                        <svg class="w-16 h-16 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-                        <h3 class="mt-4 text-2xl font-bold">2. 기록하기</h3>
-                        <p class="mt-2 text-gray-400">(Log Everything)</p>
-                    </div>
-                    <div class="bg-gray-800 p-8 rounded-lg flex flex-col items-center">
-                        <svg class="w-16 h-16 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                        <h3 class="mt-4 text-2xl font-bold">3. 꾸준히 하기</h3>
-                        <p class="mt-2 text-gray-400">(Be Consistent)</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+					</div>
+					
+					<div class="mt-8 pt-8 border-t border-gray-700">
+						<p class="text-xl text-amber-300">단순한 시간의 합을 넘어, 매일 고민하는 <strong class="text-white">습관</strong>이 <strong class="text-white">절대적인 차이</strong>를 만듭니다.</p>
+					</div>
+				</div>
+			</div>
+		</div>
 
-        <div class="slide w-full h-full flex flex-col items-center justify-center text-center p-8 hidden">
-            <div class="slide-content w-full">
-                <h2 class="text-8xl font-black text-white">Q & A</h2>
-                <p class="mt-6 text-2xl text-gray-400">궁금한 점이 있다면 편하게 질문해주세요.</p>
-            </div>
-        </div>
+		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
+			<div class="slide-content w-full max-w-5xl">
+				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">왜 <strong class="text-cyan-400">10분</strong>이 절대적인 차이를 만들까?</h2>
+				<p class="text-center mt-4 text-2xl font-semibold">개발자는 <strong class="text-red-400">감(感)</strong>이 아닌 <strong class="text-cyan-400">정확성</strong>으로 말해야 합니다.</p>
+
+				<div class="mt-10 grid md:grid-cols-2 gap-8 text-center">
+					
+					<div class="card p-6 rounded-lg">
+						<h3 class="text-xl font-bold text-gray-400"><strong class="text-white">사용법</strong>만 아는 단계</h3>
+						<p class="mt-4 text-lg">"이렇게 하면 되더라"</p>
+						<p class="mt-2 text-red-400 font-semibold">(감, 느낌에 의존)</p>
+						<hr class="border-gray-700 my-4">
+						<p class="text-gray-400">당장은 빠르지만, 예상치 못한<br>문제에 대처하기 어렵습니다.</p>
+					</div>
+
+					<div class="card p-6 rounded-lg border-2 border-cyan-500">
+						<h3 class="text-xl font-bold text-cyan-400"><strong class="text-white">원리</strong>를 이해한 단계</h3>
+						<p class="mt-4 text-lg">"이래서 이렇게 동작한다"</p>
+						<p class="mt-2 text-cyan-400 font-semibold">(정확한 근거에 기반)</p>
+						<hr class="border-gray-700 my-4">
+						<p class="text-gray-300">어떤 상황에서도 응용이 가능하며,<br>문제의 근본 원인을 찾습니다.</p>
+					</div>
+				</div>
+
+				<div class="mt-10 text-center card p-6 rounded-lg border-amber-300/50">
+					<p class="font-bold text-xl text-amber-300">
+						따로 시간을 내어 <strong class="text-white">원리</strong>를 공부하기는 어렵습니다.<br>
+						<strong class="text-white">출퇴근길 10분</strong>은 <strong class="text-white">사용법</strong>과 <strong class="text-white">원리</strong>를 잇는 최고의 <strong class="text-amber-300">시너지 학습</strong>입니다.
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
+			<div class="slide-content w-full max-w-4xl">
+				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">
+					<span class="text-amber-400">원리</span>를 파고드는 습관, <span class="text-cyan-400">AI</span>로 완성도를 높이세요
+				</h2>
+				<p class="text-center mt-3 text-xl text-gray-400">
+					출퇴근길에 쌓은 '왜?'라는 질문을 AI와 함께 더 깊게 탐구하는 것입니다.
+				</p>
+				
+				<div class="mt-8 grid md:grid-cols-2 gap-10">
+					<div class="bg-red-900/20 border border-red-500/30 p-2 rounded-lg text-center flex flex-col justify-center">
+						<h3 class="text-xl font-bold text-red-300">(Bad 👎)</h3>
+						<p class="mt-4 text-lg text-gray-300">"이거 해결하는 코드 줘"</p>
+					</div>
+					<div class="bg-green-900/20 border border-green-500/30 p-2 rounded-lg text-center flex flex-col justify-center">
+						<h3 class="text-xl font-bold text-green-300">(Good 👍)</h3>
+						<p class="mt-4 text-lg text-gray-300">"이 코드는 어떤 원리로 동작해?<br>왜 이 함수가 최적이야?"</p>
+					</div>
+				</div>
+
+				<div class="mt-8 card p-6 rounded-lg text-center">
+					<p class="text-xl font-bold text-amber-300">💡 Tip: AI에게 '원리 탐구 파트너' 역할을 부여하세요</p>
+					<img src="개인프롬프트.png" alt="AI 프롬프트 예시" class="rounded-md w-full max-w-xl mx-auto mt-4 border-2 border-dashed border-gray-600">
+				</div>
+			</div>
+		</div>
+		
+		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
+			<div class="slide-content w-full max-w-4xl">
+				<h2 class="text-3xl md:text-4xl font-bold text-white">그래서 저는 지금...</h2>
+				<ul class="mt-8 text-lg md:text-xl text-gray-300 space-y-4 list-disc list-inside">
+					<li>
+						<strong>3년 차의 고민:</strong> "알고 있는 지식들이 파편적으로 흩어져 있는 느낌"
+					</li>
+					<li>
+						<strong>새로운 도전:</strong> 야간 대학원 진학 → 컴퓨터 공학 기초부터 다시 공부
+						<div class="mt-3 ml-6 card p-4 rounded-lg border-gray-700 text-base">
+							<p class="text-gray-400">컴퓨터가 0과 1로 세상을 이해하는 방식부터 다시 배우는 중입니다.</p>
+							<ul class="list-none mt-2 space-y-1">
+								<li class="text-cyan-300"><span class="text-gray-500 mr-2">↳</span>Flip-Flop, Accumulator (Hardware)</li>
+								<li class="text-cyan-300"><span class="text-gray-500 mr-2">↳</span>Assembly Language (Low-level Language)</li>
+								<li class="text-cyan-300"><span class="text-gray-500 mr-2">↳</span>Network 5 Layers (Communication Architecture)</li>
+							</ul>
+						</div>
+					</li>
+					<li class="mt-8 pt-6 border-t border-gray-700">
+						<strong class="text-cyan-400">깨달음:</strong> 변하는 <strong class="text-gray-400">기술</strong>이 아닌, 변하지 않는 <strong class="text-amber-400">본질</strong>에 투자하는 것의 중요성
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div class="slide w-full h-full flex flex-col items-center justify-center text-center p-8 hidden">
+			<div class="slide-content w-full">
+				<h2 class="text-4xl md:text-5xl font-bold text-white mb-12">오늘의 핵심: <span class="text-cyan-400">3가지 성장 습관</span></h2>
+				<div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+					
+					<div class="card p-8 rounded-lg flex flex-col items-center">
+						<svg class="w-16 h-16 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+						<h3 class="mt-4 text-2xl font-bold">1. 깊이 파기</h3>
+						<p class="mt-3 text-gray-300">나만의 <strong class="text-white">언어적 모국어</strong> 만들기</p>
+					</div>
+					
+					<div class="card p-8 rounded-lg flex flex-col items-center">
+						<svg class="w-16 h-16 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L6.832 19.82a4.5 4.5 0 01-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 011.13-1.897L16.863 4.487zm0 0L19.5 7.125" /></svg>
+						<h3 class="mt-4 text-2xl font-bold">2. 기록하기</h3>
+						<p class="mt-3 text-gray-300">미래의 나를 위한 <strong class="text-white">해결 노트</strong> 쓰기</p>
+					</div>
+					
+					<div class="card p-8 rounded-lg flex flex-col items-center">
+						<svg class="w-16 h-16 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+						<h3 class="mt-4 text-2xl font-bold">3. 꾸준히 하기</h3>
+						<p class="mt-3 text-gray-300">하루 <strong class="text-white">10분</strong>의 자투리 시간 투자</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="slide w-full h-full flex flex-col items-center justify-center text-center p-8 hidden">
+			<div class="slide-content w-full">
+				<h2 class="text-8xl font-black text-white tracking-wider">Q & A</h2>
+				<div class="mt-8 border-t-2 border-cyan-400 w-24 mx-auto"></div>
+				<p class="mt-8 text-2xl text-gray-400">궁금한 점이 있다면 편하게 질문해주세요.</p>
+			</div>
+		</div>
         
         <div class="slide w-full h-full flex flex-col items-center justify-center text-center p-8 hidden">
             <div class="slide-content w-full">
@@ -294,27 +757,30 @@
                 <p class="mt-6 text-2xl text-cyan-400 font-semibold">여러분의 성공적인 첫걸음을 응원합니다.</p>
             </div>
         </div>
+
     </div>
-    
+
     <div class="fixed bottom-0 left-0 w-full p-4 bg-gray-900/50 backdrop-blur-sm">
         <div class="max-w-5xl mx-auto flex items-center justify-between">
-            <div class="text-sm text-gray-400" id="slide-counter">1 / 17</div>
             <div class="flex items-center gap-4">
-                <button id="prev-btn" class="bg-gray-700 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded-full disabled:opacity-50 disabled:cursor-not-allowed">
+                <button id="prev-btn" class="bg-gray-700 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded-full disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
                 </button>
-                <button id="next-btn" class="bg-gray-700 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded-full disabled:opacity-50 disabled:cursor-not-allowed">
+                <button id="next-btn" class="bg-gray-700 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded-full disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-300">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                 </button>
             </div>
-            <div class="w-32"></div> </div>
+            <div class="text-sm text-gray-400" id="slide-counter"></div>
+        </div>
         <div class="w-full bg-gray-700 rounded-full h-1.5 mt-3">
-            <div id="progress-bar" class="bg-cyan-400 h-1.5 rounded-full progress-bar-inner" style="width: 5.8%"></div>
+            <div id="progress-bar" class="bg-cyan-400 h-1.5 rounded-full progress-bar-inner"></div>
         </div>
     </div>
 
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // --- 슬라이드 제어 로직 ---
             const slides = document.querySelectorAll('.slide');
             const nextBtn = document.getElementById('next-btn');
             const prevBtn = document.getElementById('prev-btn');
@@ -326,29 +792,19 @@
 
             function showSlide(index) {
                 slides.forEach((slide, i) => {
-                    if (i === index) {
-                        slide.classList.remove('hidden');
-                        // Trigger reflow to restart animation
-                        const content = slide.querySelector('.slide-content');
-                        if (content) {
-                            content.style.animation = 'none';
-                            content.offsetHeight; // Trigger reflow
-                            content.style.animation = '';
-                        }
-                    } else {
-                        slide.classList.add('hidden');
-                    }
+                    slide.classList.toggle('hidden', i !== index);
                 });
                 updateControls();
             }
 
             function updateControls() {
-                slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
-                const progressPercentage = ((currentSlide + 1) / totalSlides) * 100;
-                progressBar.style.width = `${progressPercentage}%`;
-
-                prevBtn.disabled = currentSlide === 0;
-                nextBtn.disabled = currentSlide === totalSlides - 1;
+                if(slideCounter && progressBar && prevBtn && nextBtn) {
+                    slideCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
+                    const progressPercentage = ((currentSlide + 1) / totalSlides) * 100;
+                    progressBar.style.width = `${progressPercentage}%`;
+                    prevBtn.disabled = currentSlide === 0;
+                    nextBtn.disabled = currentSlide === totalSlides - 1;
+                }
             }
 
             function nextSlide() {
@@ -365,45 +821,91 @@
                 }
             }
 
-            nextBtn.addEventListener('click', nextSlide);
-            prevBtn.addEventListener('click', prevSlide);
+            if (nextBtn && prevBtn) {
+                nextBtn.addEventListener('click', nextSlide);
+                prevBtn.addEventListener('click', prevSlide);
+            }
 
             document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowRight') {
+                if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
                     nextSlide();
-                } else if (e.key === 'ArrowLeft') {
+                } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
                     prevSlide();
                 }
             });
 
-            // --- ✨ 마우스 휠 이벤트 추가된 부분 ✨ ---
             let isScrolling = false;
-            const scrollDelay = 800; // 스크롤 이벤트 사이의 지연 시간 (ms)
-
+            const scrollDelay = 800;
             document.addEventListener('wheel', (e) => {
-                // 기본 브라우저 스크롤 동작 방지
                 e.preventDefault();
-
-                // 스크롤 이벤트가 처리 중이면 무시
                 if (isScrolling) return;
-
                 isScrolling = true;
-
                 if (e.deltaY > 0) {
-                    // 마우스 휠을 아래로 스크롤
                     nextSlide();
                 } else {
-                    // 마우스 휠을 위로 스크롤
                     prevSlide();
                 }
-
-                // 일정 시간 후 스크롤 가능 상태로 변경
-                setTimeout(() => {
-                    isScrolling = false;
-                }, scrollDelay);
-            }, { passive: false }); // preventDefault를 위해 passive: false 추가
-
+                setTimeout(() => { isScrolling = false; }, scrollDelay);
+            }, { passive: false });
+            
+            // 초기 슬라이드 표시
             showSlide(currentSlide);
+
+            // --- 퀴즈 모달 로직 ---
+			const correctBtn = document.getElementById('correct-answer');
+			const wrongBtn = document.getElementById('wrong-answer');
+			const correctBtn2 = document.getElementById('q2-literal-correct');
+			const wrongBtn2 = document.getElementById('q2-literal-wrong');
+            const modal = document.getElementById('feedback-modal');
+            const modalContent = document.getElementById('modal-content');
+            const modalText = document.getElementById('modal-text');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+
+            function showFeedback(message, isCorrect) {
+                modalText.textContent = message;
+                modalContent.className = modalContent.className.replace(/border-\w+-\d+/g, '');
+                
+                if (isCorrect) {
+                    modalContent.classList.add('border-green-400');
+                } else {
+                    modalContent.classList.add('border-red-400');
+                }
+                
+                modal.classList.remove('hidden');
+                modal.classList.add('modal-fade-enter-active');
+                modal.classList.remove('modal-fade-enter');
+            }
+
+            function hideFeedback() {
+                modal.classList.add('modal-fade-leave-active');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('modal-fade-enter-active', 'modal-fade-leave-active');
+                    modal.classList.add('modal-fade-enter');
+                }, 200);
+            }
+            
+            if (correctBtn && wrongBtn && modalCloseBtn && modal) {
+                correctBtn.addEventListener('click', () => showFeedback('정답입니다! 🎉', true));
+                wrongBtn.addEventListener('click', () => showFeedback('다시 생각해 보세요! 🤔', false));
+                modalCloseBtn.addEventListener('click', hideFeedback);
+                modal.addEventListener('click', (event) => {
+                    if (event.target === modal) {
+                        hideFeedback();
+                    }
+                });
+            }
+			
+			if (correctBtn2 && wrongBtn2 && modalCloseBtn && modal) {
+                correctBtn2.addEventListener('click', () => showFeedback('정답입니다! 🎉', true));
+                wrongBtn2.addEventListener('click', () => showFeedback('다시 생각해 보세요! 🤔', false));
+                modalCloseBtn.addEventListener('click', hideFeedback);
+                modal.addEventListener('click', (event) => {
+                    if (event.target === modal) {
+                        hideFeedback();
+                    }
+                });
+            }
         });
     </script>
 </body>
