@@ -159,17 +159,17 @@
 						<h3 class="text-xl font-bold text-cyan-400">2. 문자열 구현: C vs Java</h3>
 						<ul class="mt-4 space-y-3">
 							<li><strong class="text-gray-200">C언어</strong>
-								<p class="text-base text-gray-400 pl-2"><strong class="text-amber-400">String 타입</strong>이 없고, <strong class="text-green-400">문자(char) 배열</strong>로 표현</p>
+								<p class="text-base text-gray-400 pl-2"><strong class="text-green-400">String 타입</strong>이 없고, <strong class="text-green-400">문자(char) 배열</strong>로 표현</p>
 							</li>
 							<li><strong class="text-gray-200">Java</strong>
-								<p class="text-base text-gray-400 pl-2">문자 배열과 기능을 묶어 <strong class="text-yellow-400">String 클래스</strong>로 설계</p>
+								<p class="text-base text-gray-400 pl-2">문자 배열과 기능을 묶어 <strong class="text-green-400">String 클래스</strong>로 설계</p>
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div class="mt-6 text-left bg-gray-900/50 p-6 rounded-lg border border-gray-700 space-y-2 text-lg">
-					<p><span class="text-cyan-400 font-bold">클래스</span>는 <span class="text-cyan-400 font-bold">참조형</span>이므로, 변수는 실제 값이 아닌 <strong class="text-yellow-400">메모리 주소</strong>를 가집니다.</p>
-					<p>이것이 문자열 <strong class="text-amber-400">내용</strong>을 비교할 때, <code class="bg-red-900/50 text-red-400 px-2 py-1 rounded">==</code>가 아닌 <code class="bg-green-900/50 text-green-400 px-2 py-1 rounded">.equals()</code>를 써야 하는 이유입니다.</p>
+					<p><span class="text-cyan-400 font-bold">클래스</span>는 <span class="text-cyan-400 font-bold">참조형</span>이므로, 변수는 실제 값이 아닌 <strong class="text-cyan-400">메모리 주소</strong>를 가집니다.</p>
+					<p>이것이 문자열 <strong class="text-cyan-400">내용</strong>을 비교할 때, <code class="bg-red-900/50 text-red-400 px-2 py-1 rounded">==</code>가 아닌 <code class="bg-green-900/50 text-green-400 px-2 py-1 rounded">.equals()</code>를 써야 하는 이유입니다.</p>
 				</div>
 			</div>
 		</div>
@@ -324,13 +324,13 @@
 		
 		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
 			<div class="slide-content w-full max-w-5xl">
-				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">"<code>s1 == s2</code>는 왜 <span class="text-yellow-400">true</span>일까?"</h2>
+				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">"<code>s1 == s2</code>는 왜 <span class="text-green-400">true</span>일까?"</h2>
 				<p class="text-center mt-2 text-lg text-gray-400"><strong class="text-cyan-400">String Constant Pool</strong>과 <strong class="text-cyan-400">불변성</strong> 때문</p>
 				
 				<div class="mt-6 grid md:grid-cols-2 gap-6 text-left">
 					<div class="card p-6 rounded-lg">
 						<h3 class="text-xl font-bold text-cyan-400">1. 리터럴 방식 (`"..."`) ♻️</h3>
-						<p class="mt-2 text-gray-400 text-base"><strong class="text-amber-400">String Constant Pool</strong>에 <strong class="text-green-400">같은 내용</strong>이 있으면 
+						<p class="mt-2 text-gray-400 text-base"><strong class="text-green-400">String Constant Pool</strong>에 <strong class="text-green-400">같은 내용</strong>이 있으면 
 						<br><strong class="text-cyan-400">기존 주소를 공유</strong></p>
 						<div class="mt-4 bg-gray-900 p-3 rounded-md text-sm font-mono">
 							<p>String s1 = "hello";</p><p>String s2 = "hello";</p><p class="text-green-400 mt-2">// s1 == s2  결과: true</p>
@@ -338,7 +338,7 @@
 					</div>
 					<div class="card p-6 rounded-lg">
 						<h3 class="text-xl font-bold text-cyan-400">2. `new` 키워드 방식</h3>
-						<p class="mt-2 text-gray-400 text-base"><code>new</code>는 Pool과 상관없이 <strong class="text-yellow-400">무조건 새로운 객체</strong>를 만듬</p>
+						<p class="mt-2 text-gray-400 text-base"><code>new</code>는 Pool과 상관없이 <strong class="text-green-400">무조건 새로운 객체</strong>를 만듬</p>
 						<div class="mt-4 bg-gray-900 p-3 rounded-md text-sm font-mono">
 							<p>String s3 = new String("hello");</p><p>String s4 = new String("hello");</p><p class="text-green-400 mt-2">// s3 == s4 결과: false</p>
 						</div>
@@ -348,7 +348,7 @@
 				<div class="mt-6 text-center bg-gray-900/50 p-6 rounded-lg border border-gray-700">
 					<p class="mt-4 text-gray-300 text-lg">
 						생성 방식에 따라 <code class="bg-red-900/50 text-red-400 px-2 py-1 rounded">==</code> 비교는 맞을 수도, 틀릴 수도 있습니다.<br>
-						따라서 문자열의 <strong class="text-amber-400">내용</strong>을 비교할 때는 항상 <code class="bg-green-900/50 text-green-400 px-2 py-1 rounded">.equals()</code> <strong class="text-white">를 사용하는 것이 안전한 규칙</strong>입니다.
+						따라서 문자열의 <strong class="text-green-400">내용</strong>을 비교할 때는 항상 <code class="bg-green-900/50 text-green-400 px-2 py-1 rounded">.equals()</code> <strong class="text-white">를 사용하는 것이 안전한 규칙</strong>입니다.
 					</p>
 				</div>
 			</div>
@@ -412,10 +412,10 @@
 		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
 			<div class="slide-content w-full max-w-4xl">
 				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">
-					저 수많은 기술들이 말해주는 한 가지
+					수많은 기술들이 말해주는 한 가지
 				</h2>
 				<p class="text-center mt-2 text-xl text-gray-400">
-					결국 중요한 것은 <span class="text-cyan-300">문법</span>이 아닌 <span class="text-cyan-300">원리</span>였습니다.
+					결국 중요한 것은 <span class="text-cyan-300">문법</span>이 아닌 <span class="text-cyan-300">원리</span>
 				</p>
 				
 				<div class="mt-8 grid md:grid-cols-2 gap-6 text-center">
@@ -424,15 +424,15 @@
 						<h3 class="text-lg font-bold text-red-300">얕은 공부</h3>
 						<p class="mt-2 text-base text-gray-300">여러 언어의 <strong class="text-white">문법</strong>만 암기</p>
 						<p class="mt-3 text-lg font-semibold text-red-300">
-							AI가 대체하기 쉬움
+							결국 AI에게 <strong class="text-white">대체</strong>되는 지식
 						</p>
 					</div>
 
 					<div class="card p-4 rounded-lg bg-green-900/20 border border-green-500/30">
 						<h3 class="text-lg font-bold text-green-300">깊은 공부</h3>
-						<p class="mt-2 text-base text-gray-300">하나의 언어 <strong class="text-white">동작 원리</strong> 이해</p>
+						<p class="mt-2 text-base text-gray-300">하나의 언어 <strong class="text-white">동작 원리</strong>를 탐구</p>
 						<p class="mt-3 text-lg font-semibold text-green-300">
-							어떤 기술에도 응용 가능
+							AI를 <strong class="text-white">도구</strong>로 활용하는 문제 해결 능력
 						</p>
 					</div>
 
@@ -444,10 +444,10 @@
 					</p>
 					<div class="my-3 border-t border-cyan-400 w-1/4 mx-auto"></div>
 					<p class="text-2xl text-white font-bold">
-						"이건 <strong class="text-amber-300">Java의 OOO 개념</strong>과 같네?"
+						"이건 <strong class="text-cyan-300">Java의 OOO 개념</strong>과 같네?"
 					</p>
 					<p class="mt-3 text-xl text-cyan-400 font-semibold">
-						라고 유추해내는 힘.
+						라고 기술의 본질을 꿰뚫어 보는 힘.
 					</p>
 				</div>
 			</div>
@@ -501,7 +501,7 @@
 		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
 			<div class="slide-content w-full max-w-4xl text-center">
 				<h2 class="text-3xl md:text-4xl font-bold text-white">신입의 비밀 무기: 나만의 <span class="text-cyan-400">해결 노트</span></h2>
-				<p class="mt-4 text-lg text-gray-400">사소한 성공부터 아찔한 실패의 순간까지, 모든 것을 기록합니다.</p>
+				<p class="mt-4 text-lg text-gray-400">매일 구현한 과정과 에러들, 삽질의 경험들 까지, 모든 것을 기록합니다.</p>
 				<div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 bg-gray-800 p-4 rounded-lg border-2 border-dashed border-gray-600">
 					<img src="dailylog.png" alt="업무 기록 예시 1" class="rounded-md w-full h-auto object-contain max-h-[45vh]">
 					<img src="dailylog2.png" alt="업무 기록 예시 2" class="rounded-md w-full h-auto object-contain max-h-[45vh]">
@@ -525,7 +525,7 @@
 						<h3 class="text-2xl font-bold text-red-300">운영 Docker 컨테이너 삭제</h3>
 						<p class="mt-2 text-gray-400">나의 의도: "잠시 내리는 거겠지?"</p>
 						<hr class="border-gray-700 my-3">
-						<p class="text-red-400">실제 명령어의 의미:</p>
+						<p class="text-red-400">실제 명령어의 의미: <code class="text-red-300 font-bold text-xl">docker-compose down</code></p>
 						<p class="mt-2 text-white font-bold text-lg">단순 중단이 아니라, 컨테이너와 네트워크를<br>완전히 <strong class="text-red-400">삭제</strong>하는 명령어 😱🥶</p>
 					</div>
 				</div>
@@ -597,7 +597,7 @@
 
 		<div class="slide w-full h-full flex flex-col items-center justify-center p-8 hidden">
 			<div class="slide-content w-full max-w-4xl">
-				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">출퇴근길 <span class="text-cyan-400">10분</span>, 1년 뒤의 <span class="text-amber-300">압도적 차이</span></h2>
+				<h2 class="text-3xl md:text-4xl font-bold text-white text-center">출퇴근길 <span class="text-cyan-400">10분</span>, 티끌 모아 <span class="text-amber-300">태산</span></h2>
 				
 				<div class="mt-8 card p-8 rounded-lg text-center">
 					<div class="grid md:grid-cols-3 items-center gap-8">
@@ -620,7 +620,7 @@
 							<div class="bg-gray-700 w-20 h-20 rounded-full mx-auto flex items-center justify-center">
 								<svg class="w-10 h-10 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9V5.25A2.25 2.25 0 0110.5 3h6a2.25 2.25 0 012.25 2.25v13.5A2.25 2.25 0 0116.5 21h-6a2.25 2.25 0 01-2.25-2.25V15m-3 0h3m0 0v3m0-3V9" /></svg>
 							</div>
-							<p class="mt-4 text-lg font-semibold">단단해지는 <br> <strong class="text-white">사고의 근육</strong></p>
+							<p class="mt-4 text-lg font-semibold">능동적인 <br> <strong class="text-white">생각의 습관</strong></p>
 						</div>
 
 					</div>
@@ -910,4 +910,5 @@
     </script>
 </body>
 </html>
+
 
